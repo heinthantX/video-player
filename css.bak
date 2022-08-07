@@ -1,0 +1,143 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  overflow: hidden;
+}
+
+#video {
+  width: 100%;
+  max-width: 800px;
+}
+
+#controls {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 12px;
+  padding-right: 12px;
+  background: transparent;
+  transform: translateY(120%);
+  transition: 0.3s;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+i {
+  color: white;
+}
+
+.buttons > div {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  flex: 1;
+}
+.buttons > div:first-child {
+  justify-content: left;
+}
+
+.buttons > div:nth-child(2) {
+  justify-content: center;
+}
+
+#controls button {
+  background: transparent;
+  border: none;
+}
+
+#play-pause {
+  font-size: 30px;
+}
+
+.bar {
+  width: 100%;
+  height: 6px;
+  margin-bottom: 8px;
+  border-radius: 16px;
+  background-color: rgba(255, 233, 255, 0.5);
+  position: relative;
+}
+
+.dot {
+  width: 0;
+  height: 100%;
+  border-radius: 16px;
+  background: #60e4d5;
+  position: relative;
+}
+
+#progress-dot::after {
+  content: '';
+  position: absolute;
+  right: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+#progress-time {
+  position: absolute;
+  bottom: 18px;
+  left: var(--xx);
+  padding: 5px 10px;
+  font-size: 14px;
+  background: #002333;
+  border-radius: 5px;
+  display: none;
+  transform: translateX(-50%);
+}
+#progress-time::before {
+  content: '';
+  position: absolute;
+  bottom: -50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: #002333;
+  width: 15px;
+  height: 15px;
+  z-index: -1;
+}
+
+.volume .bar {
+  margin: 0 6px;
+  width: 40%;
+  overflow: hidden;
+}
+
+.volume .dot {
+  width: 40%;
+  border-radius: 16px 0px 0px 16px;
+  background-color: #35a397;
+}
+
+.container:hover #controls {
+  transform: translateY(0);
+}
+
+video::-webkit-media-controls-enclosure {
+  display: none !important;
+}
