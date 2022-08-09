@@ -2,7 +2,7 @@
 
 ## About the template
 
-![screenshot](./assets/images/Screenshot%202022-08-08%20000021.png)
+![screenshot](./assets/images/Screenshot%202022-08-09%20180501.png)
 
 This is a project of html5 video player with custom controls.
 You can see [DEMO HERE](https://heinthantx.github.io/video-player)

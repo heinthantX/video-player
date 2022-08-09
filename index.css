@@ -3,6 +3,7 @@ body {
   padding: 0;
   height: 100vh;
   display: flex;
+  flex-direction: column;
 
   justify-content: center;
   align-items: center;
@@ -45,6 +46,10 @@ body {
 
 i {
   color: white;
+}
+
+button:focus {
+  outline: none;
 }
 
 .buttons > div {
@@ -135,4 +140,13 @@ input[type='range']:focus {
 
 .container:hover #controls {
   transform: translateY(0);
+}
+
+.shortcut i {
+  color: inherit;
+}
+
+.shortcut h5 {
+  margin: 10px;
+  font-size: 16px;
 }

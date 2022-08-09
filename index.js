@@ -19,6 +19,32 @@ controls.style.display = 'block';
 
 volumeControl.addEventListener('input', volumeChange);
 
+document.addEventListener('keypress', (e) => {
+  const { key } = e;
+  if (key == ' ') {
+    playPause();
+  } else if (key == 'm') {
+    muteUnmute();
+  } else if (key == 'f') {
+    video.requestFullscreen();
+  }
+});
+
+document.addEventListener('keydown', (e) => {
+  const { key } = e;
+  if (key == 'ArrowDown') {
+    volumeControl.value -= 7;
+    volumeChange();
+  } else if (key == 'ArrowUp') {
+    volumeControl.value += 7;
+    volumeChange();
+  } else if (key == 'ArrowRight') {
+    video.currentTime += 10;
+  } else if (key == 'ArrowLeft') {
+    video.currentTime -= 10;
+  }
+});
+
 function volumeChange() {
   const { value } = volumeControl;
   volumeControl.style.backgroundSize = value + '% 100%';
@@ -33,8 +59,10 @@ function volumeChange() {
   }
 }
 
+volumeLogo.addEventListener('click', muteUnmute);
+
 let tempVal;
-volumeLogo.addEventListener('click', () => {
+function muteUnmute() {
   const { value } = volumeControl;
   if (value != 0) {
     tempVal = value;
@@ -43,9 +71,11 @@ volumeLogo.addEventListener('click', () => {
     volumeControl.value = tempVal;
   }
   volumeChange();
-});
+}
 
-playPauseBtn.addEventListener('click', () => {
+playPauseBtn.addEventListener('click', playPause);
+
+function playPause() {
   if (video.paused) {
     playPauseBtn.firstElementChild.className = 'fa-regular fa-circle-pause';
     video.play();
@@ -53,7 +83,7 @@ playPauseBtn.addEventListener('click', () => {
     playPauseBtn.firstElementChild.className = 'fa-regular fa-circle-play';
     video.pause();
   }
-});
+}
 
 video.addEventListener('timeupdate', () => {
   const percentage = (video.currentTime / video.duration) * 100;
