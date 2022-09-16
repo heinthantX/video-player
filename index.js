@@ -10,6 +10,8 @@ const progressTime = document.getElementById('progress-time');
 const fullScreen = document.getElementById('full-screen');
 const volumeControl = document.getElementById('vol-control');
 const volumeLogo = document.getElementById('volume-logo');
+const loading = document.querySelector('.loading');
+const container = document.querySelector('.container');
 
 video.removeAttribute('controls');
 video.controls = false;
@@ -106,6 +108,21 @@ video.addEventListener('loadeddata', (e) => {
   duration.textContent = new Date(video.duration * 1000)
     .toISOString()
     .substring(14, 19);
+  video.style.display = 'block';
+  controls.style.opacity = 1;
+  loading.style.display = 'none';
+  let isEnter = false;
+  container.addEventListener('mouseover', () => {
+    isEnter = true;
+    controls.style.display = 'block';
+  });
+  container.addEventListener('mouseleave', () => {
+    isEnter = false;
+    setTimeout(() => {
+      if (isEnter) return;
+      controls.style.display = 'none';
+    }, 1000 * 2);
+  });
 });
 
 progressBar.addEventListener('input', (e) => {

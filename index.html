@@ -15,15 +15,31 @@
   </head>
   <body>
     <div class="container">
-      <video
-        id="video"
-        src="./assets/video/3 Minutes of AMAZING NATURE SCENERY on Planet Earth (The Best Relax Music - 1080p HD ).mp4"
-      ></video>
+      <div class="loading">
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+      </div>
+      <video id="video" src="./assets/video/video.mp4"></video>
 
-      <div class="hidden" id="controls">
+      <div id="controls">
         <div class="progress-container">
           <div id="progress-time">00:00</div>
-          <input type="range" name="" min="0" max="100" id="progress-bar" />
+          <input
+            type="range"
+            name=""
+            min="0"
+            max="100"
+            step="1"
+            id="progress-bar"
+          />
         </div>
         <div class="buttons">
           <div class="volume">
@@ -43,7 +59,7 @@
             <button id="forward">
               <i class="fa-solid fa-forward"></i>
             </button>
-            <span id="duration"></span>
+            <span id="duration">00:00</span>
           </div>
           <div>
             <button id="full-screen">
