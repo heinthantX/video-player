@@ -128,6 +128,7 @@ video.addEventListener('loadeddata', (e) => {
 progressBar.addEventListener('input', (e) => {
   let { value } = e.target;
   video.currentTime = video.duration * (value / 100);
+  progressBar.style.backgroundSize = value + '% 100%';
 });
 
 progressBar.addEventListener('mousemove', (e) => {
